@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import BasicModalExample from './components/Component'
 import { Button, Modal, ModalBody, ModalHeader } from "shards-react";
@@ -17,7 +16,7 @@ function App() {
       <Nav>
       <NavItem>
         <NavLink active href="#">
-          Active
+          Plant🌿Nerd🤓
         </NavLink>
       </NavItem>
       
@@ -26,9 +25,7 @@ function App() {
       </NavItem>
       
       <NavItem>
-      <Button outline pill theme="secondary">
-        Secondary
-      </Button>
+      <BasicModalExample />
       </NavItem>
       
     </Nav>
