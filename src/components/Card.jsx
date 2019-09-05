@@ -11,7 +11,7 @@ import {
 
 export default function BasicCardExample() {
   return (
-    <Card style={{ maxWidth: "300px" }}>
+    <Card small={true} style={{ maxWidth: "250px" }}>
       <CardHeader></CardHeader>
       <CardImg src="https://edge.bonnieplants.com/www/uploads/20180920002445/organic-rosemary-web.jpg" />
       <CardBody>
