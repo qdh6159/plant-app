@@ -1,6 +1,6 @@
 import React from 'react';
 // import MoviesContainer from './MoviesContainer/MoviesContainer'
-import BasicCardExample from './Cards/Card'
+import BasicCardExample from '../Cards/Card'
 
 
 
