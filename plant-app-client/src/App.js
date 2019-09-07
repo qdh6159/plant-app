@@ -16,7 +16,7 @@ function App() {
       <Nav>
       <NavItem>
         <NavLink active href="#">
-          Plant🌿Nerd🤓
+          Plant<span role="img">🌿</span>Nerd<span role="img">🤓</span>
         </NavLink>
       </NavItem>
       
@@ -27,6 +27,10 @@ function App() {
       <NavItem>
       <BasicModalExample />
       </NavItem>
+      <NavItem>
+      <Button theme="success">My Plants</Button>
+      </NavItem>
+      
       
     </Nav>
         
