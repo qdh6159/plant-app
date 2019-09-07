@@ -11,7 +11,16 @@ import "shards-ui/dist/css/shards.min.css"
 export default class BasicModalExample extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = { 
+      open: false,
+      name: "",
+      scientificName: "",
+      water: "", 
+      sun: "",
+      description: "",
+      imageOne: "", 
+      imageTwo: "",
+     };
     this.toggle = this.toggle.bind(this);
   }
 
@@ -20,6 +29,17 @@ export default class BasicModalExample extends React.Component {
       open: !this.state.open
     });
   }
+
+  handleChange = (e) => {
+    this.setState ({
+        [e.target.name] : e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.createMovie(this.state)
+}
 
   render() {
     const { open } = this.state;
@@ -37,44 +57,55 @@ export default class BasicModalExample extends React.Component {
 
                         <Row>
                         <FormGroup>
-                            <label htmlFor="#username">Name</label>
-                            <FormInput id="#username" placeholder="Name" />
+                            <label htmlFor="name">Name</label>
+                            <FormInput onChange={this.handleChange} name="name" id="name" placeholder="Name" />
                         </FormGroup>
                 
                         <FormGroup>
-                            <label htmlFor="#password">Scientific Name</label>
-                        <FormInput type="password" id="#password" placeholder="Scientific Name" />
-                        
+                            <label htmlFor="scientificName">Scientific Name</label>
+                        <FormInput onChange={this.handleChange} name="scientificName" id="scientificName" placeholder="Scientific Name" />                       
                         </FormGroup>
+
                         </Row>
                         <Row>
+
                         <FormGroup>
-                            <label htmlFor="#username">Water</label>
-                            <FormInput id="#username" placeholder="Water" />
+                            <label htmlFor="water">Water</label>
+                            <FormInput onChange={this.handleChange} name="water" id="water" placeholder="Water" />
                         </FormGroup>
+
                         <FormGroup>
-                            <label htmlFor="#password">Sun</label>
-                            <FormInput type="password" id="#password" placeholder="Sun" />
+                            <label htmlFor="sun">Sun</label>
+                            <FormInput onChange={this.handleChange} name="sun" id="sun" placeholder="Sun" />
                         </FormGroup>
+
                         </Row>
                         <Row>      
                         <p className="mb-2">
                         🤔 A little something about this plant...
                         </p>
-                        <FormTextarea placeholder="Description"/> 
                         </Row>
+                        <Row>
+
+                        <FormGroup>
+                        <label htmlFor="description">zdescription</label>
+                        <FormTextarea onChange={this.handleChange} name="description" placeholder="Description"/> 
+                        </FormGroup>
+
+                        </Row>
+                        
 
                         <Row>
                         <FormGroup>
-                            <label htmlFor="#username">Image 1</label>
-                            <FormInput id="#username" placeholder="Image 1" />
+                            <label htmlFor="imageOne">Image 1</label>
+                            <FormInput onChange={this.handleChange} name="imageOne" id="imageOne" placeholder="Image 1" />
                         </FormGroup>
                         </Row>
 
                         <Row>
                         <FormGroup>
-                            <label htmlFor="#password">Image 2</label>
-                            <FormInput type="password" id="#password" placeholder="Image 2" />
+                            <label htmlFor="imageTwo">Image 2</label>
+                            <FormInput onChange={this.handleChange} name="imageTwo" id="imageTwo" placeholder="Image 2" />
                         </FormGroup>
                         </Row>
                         <br></br>

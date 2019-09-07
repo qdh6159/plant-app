@@ -1,5 +1,7 @@
 import React, { Component} from 'react'
 import PlantList from "./PlantList/PlantList"
+import PlantNav from "./nav"
+
 
 
 
@@ -95,8 +97,9 @@ class MainContainer extends Component {
     render() {
         return(
             <div>
+                <PlantNav />
                 <h3>Here is the Movie Container</h3>
-                <PlantList />
+                <PlantList plants={this.state.plants} />
             </div>
         )
     }

@@ -1,6 +1,4 @@
 import React from 'react';
-import PlantNav from "./components/nav"
-import PlantList from "./components/PlantList/PlantList"
 import MainContainer from "./components/MainContainer"
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,9 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      {/* <h1>Modal demo</h1> */}
-      <PlantNav />
+    <div className="App">      
       <MainContainer />
     </div>
   );
