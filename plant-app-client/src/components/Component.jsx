@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Button, Modal, ModalBody, ModalHeader } from "shards-react";
 import { Form, FormInput, FormGroup, FormTextarea } from "shards-react";
 import { Container, Row, Col } from "shards-react";
@@ -38,7 +38,7 @@ export default class BasicModalExample extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createMovie(this.state)
+    this.props.createPlant(this.state)
 }
 
   render() {
@@ -53,7 +53,7 @@ export default class BasicModalExample extends React.Component {
             <Container>
                 
                     <Col >
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
 
                         <Row>
                         <FormGroup>
@@ -109,7 +109,7 @@ export default class BasicModalExample extends React.Component {
                         </FormGroup>
                         </Row>
                         <br></br>
-                        <Button block>Save to Collection</Button>
+                        <Button block type="submit">Save to Collection</Button>
                         <Button block theme="secondary">Cancel </Button> 
                         <br></br>          
                     </Form>

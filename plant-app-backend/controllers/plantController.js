@@ -5,7 +5,7 @@ const router = express.Router();
 // require Our Model - Remember Model is
 // a representation of our data
 // The model should capitalized
-// const Movie = require('../models/movie');
+const Plant = require('../models/plant');
 // Creating the index route
 // index route should show all the fruits
 
@@ -34,25 +34,25 @@ const router = express.Router();
 });
 
 
-// router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
 
-//   try {
-//     console.log(req.body, ' this is req.body');
-//     const createdMovie = await Movie.create(req.body);
-//     console.log('response happening?')
-//     res.json({
-//       status: {
-//             code: 201,
-//             message: "Resource successfully created"
-//           },
-//       data: createdMovie
-//     });
+  try {
+    console.log(req.body, ' this is req.body');
+    const createdPlant = await Plant.create(req.body);
+    console.log('response happening?')
+    res.json({
+      status: {
+            code: 201,
+            message: "Resource successfully created"
+          },
+      data: createdPlant
+    });
 
-//   } catch(err){
-//     console.log(err);
-//     res.send(err);
-//   }
-// });
+  } catch(err){
+    console.log(err);
+    res.send(err);
+  }
+});
 
 
 

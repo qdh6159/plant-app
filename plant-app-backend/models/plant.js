@@ -5,7 +5,7 @@ const plantSchema = new mongoose.Schema({
   name: String,
   scientificName: String,
   water: String, 
-  Sun: String,
+  sun: String,
   description: String,
   imageOne: String, 
   imageTwo: String, 

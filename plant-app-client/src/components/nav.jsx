@@ -5,7 +5,7 @@ import { Button, Modal, ModalBody, ModalHeader } from "shards-react";
 import BasicModalExample from "./Component"
 
 
-export default function PlantNav() {
+export default function PlantNav(props) {
     return (
         <div>
         <Nav>
@@ -20,7 +20,7 @@ export default function PlantNav() {
         </NavItem>
         
         <NavItem>
-        <BasicModalExample />
+        <BasicModalExample createPlant = {props.createPlant}/>
         </NavItem>
         <NavItem>
         <Button theme="success">My Plants</Button>

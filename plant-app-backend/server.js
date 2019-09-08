@@ -4,7 +4,7 @@ const bodyParser     = require('body-parser');
 const cors           = require('cors');
 const session        = require('express-session')
 
-// require('./db/db');
+require('./db/db');
 
 
 // app.use(session({
@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 
 
 // CORS allows requests to come in from React
-// app.use(cors({
-//   credentials: true,
-//   origin: "http://localhost:3000"
-// }));
+app.use(cors({
+  // credentials: false,
+  origin: "http://localhost:3000"
+}));
 
 // app.use((req, res, next)=>{
 //   console.log(req.session.userId)

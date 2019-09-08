@@ -58,28 +58,30 @@ class MainContainer extends Component {
     //     }
     //     console.log(parsedResponse)
     // }
-    // createMovie = async (formData) => {
-    //     console.log(formData)
-    //     try{
-    //         const newMovie = await fetch("http://localhost:9000/api/v1/movies", {
-    //             method: "POST",
-    //             body: JSON.stringify(formData),
-    //             credentials: "include",
-    //             headers: {
-    //                 "Content-Type": "application/json",
+    createPlant = async (formData) => {
+        console.log(formData)
+        try{
+            const newPlant = await fetch("http://localhost:9000/plants", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                // credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
                     
-    //             }
-    //         })
-    //         const parsedResponse = await newMovie.json();
-    //         if(parsedResponse.status.code === 201){
-    //             this.setState({
-    //                 movies: [...this.state.movies, parsedResponse.data]
-    //             })
-    //         }
-    //     }catch(err) {
+                }
+            })
+            const parsedResponse = await newPlant.json();
+            if(parsedResponse.status.code === 201){
+                this.setState({
+                    plants: [...this.state.plants, parsedResponse.data]
+                })
+            }
+            console.log("********************")
+            console.log(this.state)
+        }catch(err) {
 
-    //     }
-    // }
+        }
+    }
 
     // getMovies = async () => {
     //     try{
@@ -97,7 +99,7 @@ class MainContainer extends Component {
     render() {
         return(
             <div>
-                <PlantNav />
+                <PlantNav createPlant= {this.createPlant} />
                 <h3>Here is the Movie Container</h3>
                 <PlantList plants={this.state.plants} />
             </div>
