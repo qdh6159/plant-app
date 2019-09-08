@@ -14,17 +14,17 @@ const Plant = require('../models/plant');
   // req.body this is from the fetch request
   console.log(req.body, ' this is get all')
      try  {
-        res.send("this is the plant page")
-    //   const allMovies = await Movie.find();
+        // res.send("this is the plant page")
+      const allPlants = await Plant.find();
 
-    //   // This is the response to react
-    //   res.json({
-    //     status: {
-    //         code: 200,
-    //         message: "Success"
-    //       },
-    //     data: allMovies
-    //   });
+      // This is the response to react
+      res.json({
+        status: {
+            code: 200,
+            message: "Success"
+          },
+        data: allPlants
+      });
 
     } catch (err){
 

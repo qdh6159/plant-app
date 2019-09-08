@@ -13,10 +13,10 @@ class MainContainer extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     console.log("component is mounting")
-    //     this.getMovies();
-    // }
+    componentDidMount() {
+        console.log("component is mounting")
+        this.getMovies();
+    }
     // deleteMovie = async (id) => {
     //     console.log(id)
     //     try{
@@ -83,19 +83,22 @@ class MainContainer extends Component {
         }
     }
 
-    // getMovies = async () => {
-    //     try{
-    //     const movies = await fetch("http://localhost:9000/api/v1/movies")
-    //     const parsedResponse = await movies.json();
-    //     if(parsedResponse.status.code === 200){
-    //         this.setState({
-    //             movies: parsedResponse.data})
-    //             console.log(parsedResponse.data)
-    //         }
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
+    getMovies = async () => {
+        try{
+            console.log("Getting the movies*****************")
+        const plants = await fetch("http://localhost:9000/plants")
+        const parsedResponse = await plants.json();
+        if(parsedResponse.status.code === 200){
+            this.setState({
+                plants: parsedResponse.data})
+                console.log(parsedResponse.data)
+                console.log("We got the movies")
+                console.log(this.state)
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
     render() {
         return(
             <div>
