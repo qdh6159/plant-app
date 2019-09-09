@@ -23,7 +23,7 @@ function PlantList(props){
           <CardBody>
           <CardTitle>{plant.name}</CardTitle>
         <p>{plant.description}</p>
-        <MoreModal name={plant.name} scientificName={plant.scientificName} water={plant.water} sun={plant.sun} description={plant.description}
+        <MoreModal updatePlant={props.updatePlant} deletePlant={props.deletePlant} id={plant._id}name={plant.name} scientificName={plant.scientificName} water={plant.water} sun={plant.sun} description={plant.description}
         imageOne={plant.imageOne} imageTwo={plant.imageTwo}
         />
       </CardBody>

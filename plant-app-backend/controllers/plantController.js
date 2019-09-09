@@ -80,39 +80,39 @@ router.post('/', async (req, res) => {
 
 // });
 
-// router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
 
-//   try {
-//     const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, req.body, {new: true});
-//     res.json({
-//       status: {
-//             code: 201,
-//             message: "Resource successfully updated"
-//           },
-//       data: updatedMovie
-//     });
-//   } catch(err){
-//     res.send(err)
-//   }
-// });
+  try {
+    const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.json({
+      status: {
+            code: 201,
+            message: "Resource successfully updated"
+          },
+      data: updatedPlant
+    });
+  } catch(err){
+    res.send(err)
+  }
+});
 
 
 // // Delete route
-// router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
 
-//   try {
-//      const deletedMovie = await Movie.findByIdAndRemove(req.params.id);
-//       res.json({
-//         status:  {
-//             code: 200,
-//             message: "Resource successfully deleted"
-//           },
-//         data: deletedMovie
-//       });
-//   } catch(err){
-//     res.send(err);
-//   }
-// });
+  try {
+     const deletedPlant = await Plant.findByIdAndRemove(req.params.id);
+      res.json({
+        status:  {
+            code: 200,
+            message: "Resource successfully deleted"
+          },
+        data: deletedPlant
+      });
+  } catch(err){
+    res.send(err);
+  }
+});
 
 
 

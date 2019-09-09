@@ -17,47 +17,47 @@ class MainContainer extends Component {
         console.log("component is mounting")
         this.getMovies();
     }
-    // deleteMovie = async (id) => {
-    //     console.log(id)
-    //     try{
-    //         const deleteMovie = await fetch(`http://localhost:9000/api/v1/movies/${id}`, {
-    //             method: "DELETE",
-    //             credentials: "include",
-    //         })
-    //         const parsedResponse = await deleteMovie.json();
-    //         if(parsedResponse.status.code === 200) {
-    //             this.setState({
-    //                 movies: this.state.movies.filter(movie => movie._id !== id)
+    deletePlant = async (id) => {
+        console.log(id)
+        try{
+            const deletePlant = await fetch(`http://localhost:9000/plants/${id}`, {
+                method: "DELETE",
+                // credentials: "include",
+            })
+            const parsedResponse = await deletePlant.json();
+            if(parsedResponse.status.code === 200) {
+                this.setState({
+                    plants: this.state.plants.filter(plant => plant._id !== id)
                     
-    //             })
-    //         }
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
-    // updateMovie = async (id, formData) => {
-    //     const updatedMovie = await fetch(`http://localhost:9000/api/v1/movies/${id}`, {
-    //         method: "PUT",
-    //         body: JSON.stringify(formData),
-    //         credentials: "include",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //     const parsedResponse = await updatedMovie.json();
-    //     if(parsedResponse.status.code === 201){
-    //         this.setState({
-    //             movies: this.state.movies.map(function(movie){
-    //                 if(movie._id === id){
-    //                     return parsedResponse.data
-    //                 }else{
-    //                     return movie
-    //                 }
-    //             })
-    //         })
-    //     }
-    //     console.log(parsedResponse)
-    // }
+                })
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+    updatePlant = async (id, formData) => {
+        const updatePlant = await fetch(`http://localhost:9000/plants/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(formData),
+            // credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const parsedResponse = await updatePlant.json();
+        if(parsedResponse.status.code === 201){
+            this.setState({
+                plants: this.state.plants.map(function(plant){
+                    if(plant._id === id){
+                        return parsedResponse.data
+                    }else{
+                        return plant
+                    }
+                })
+            })
+        }
+        console.log(parsedResponse)
+    }
     createPlant = async (formData) => {
         console.log(formData)
         try{
@@ -104,7 +104,7 @@ class MainContainer extends Component {
             <div>
                 <PlantNav createPlant= {this.createPlant} />
                 <h3>Here is the Movie Container</h3>
-                <PlantList plants={this.state.plants} />
+                <PlantList updatePlant={this.updatePlant} deletePlant={this.deletePlant} plants={this.state.plants} />
             </div>
         )
     }

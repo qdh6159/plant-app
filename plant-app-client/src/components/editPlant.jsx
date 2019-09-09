@@ -8,12 +8,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 
 
-export default class BasicModalExample extends React.Component {
+export default class editPlant extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
       open: false,
-      name: "test",
+      name: "",
       scientificName: "",
       water: "", 
       sun: "",
@@ -34,21 +34,23 @@ export default class BasicModalExample extends React.Component {
     this.setState ({
         [e.target.name] : e.target.value
     })
+    
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createPlant(this.state)
+    this.props.updatePlant(this.props.id ,this.state)
+    this.toggle()
 }
 
   render() {
     const { open } = this.state;
     return (
       <div>
-        <Button onClick={this.toggle}>New Plant</Button>
+        <Button onClick={this.toggle}>Edit</Button>
         <Modal  open={open} toggle={this.toggle}>
-            <ModalHeader>+ New Plant 🌿</ModalHeader>
-            <ModalBody>👋 Hello there! Just fill out the information bellow to add a new plant to your collection!</ModalBody>
+            <ModalHeader>+ Edit Plant 🌿</ModalHeader>
+            <ModalBody>👋 Hello there! Just fill out the information bellow to edit your plant!</ModalBody>
           
             <Container>
                 
@@ -58,12 +60,12 @@ export default class BasicModalExample extends React.Component {
                         <Row>
                         <FormGroup>
                             <label htmlFor="name">Name</label>
-                            <FormInput onChange={this.handleChange} name="name" id="name" placeholder={this.state.name} />
+                            <FormInput onChange={this.handleChange} name="name" id="name" placeholder={this.props.name} />
                         </FormGroup>
                 
                         <FormGroup>
                             <label htmlFor="scientificName">Scientific Name</label>
-                        <FormInput onChange={this.handleChange} name="scientificName" id="scientificName" placeholder="Scientific Name" />                       
+                        <FormInput onChange={this.handleChange} name="scientificName" id="scientificName" placeholder={this.props.scientificName} />                       
                         </FormGroup>
 
                         </Row>
@@ -71,12 +73,12 @@ export default class BasicModalExample extends React.Component {
 
                         <FormGroup>
                             <label htmlFor="water">Water</label>
-                            <FormInput onChange={this.handleChange} name="water" id="water" placeholder="Water" />
+                            <FormInput onChange={this.handleChange} name="water" id="water" placeholder={this.props.water} />
                         </FormGroup>
 
                         <FormGroup>
                             <label htmlFor="sun">Sun</label>
-                            <FormInput onChange={this.handleChange} name="sun" id="sun" placeholder="Sun" />
+                            <FormInput onChange={this.handleChange} name="sun" id="sun" placeholder={this.props.sun} />
                         </FormGroup>
 
                         </Row>
@@ -89,7 +91,7 @@ export default class BasicModalExample extends React.Component {
 
                         <FormGroup>
                         <label htmlFor="description">zdescription</label>
-                        <FormTextarea onChange={this.handleChange} name="description" placeholder="Description"/> 
+                        <FormTextarea onChange={this.handleChange} name="description" placeholder={this.props.description}/> 
                         </FormGroup>
 
                         </Row>
@@ -98,18 +100,18 @@ export default class BasicModalExample extends React.Component {
                         <Row>
                         <FormGroup>
                             <label htmlFor="imageOne">Image 1</label>
-                            <FormInput onChange={this.handleChange} name="imageOne" id="imageOne" placeholder="Image 1" />
+                            <FormInput onChange={this.handleChange} name="imageOne" id="imageOne" placeholder={this.props.imageOne} />
                         </FormGroup>
                         </Row>
 
                         <Row>
                         <FormGroup>
                             <label htmlFor="imageTwo">Image 2</label>
-                            <FormInput onChange={this.handleChange} name="imageTwo" id="imageTwo" placeholder="Image 2" />
+                            <FormInput onChange={this.handleChange} name="imageTwo" id="imageTwo" placeholder={this.props.imageTwo} />
                         </FormGroup>
                         </Row>
                         <br></br>
-                        <Button block type="submit">Save to Collection</Button>
+                        <Button block type="submit">Save Changes</Button>
                         <Button block theme="secondary">Cancel </Button> 
                         <br></br>          
                     </Form>
