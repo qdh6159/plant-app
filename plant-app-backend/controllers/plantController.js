@@ -15,8 +15,8 @@ const Plant = require('../models/plant');
   console.log(req.body, ' this is get all')
      try  {
         // res.send("this is the plant page")
-      const allPlants = await Plant.find();
-
+      const allPlants = await Plant.find().populate('user');
+      console.log(allPlants)
       // This is the response to react
       res.json({
         status: {
@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
 
   try {
     console.log(req.body, ' this is req.body');
+    req.body.user = req.session.userId;
     const createdPlant = await Plant.create(req.body);
     console.log('response happening?')
     res.json({

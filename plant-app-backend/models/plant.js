@@ -10,10 +10,10 @@ const plantSchema = new mongoose.Schema({
   imageOne: String, 
   imageTwo: String, 
 
-//   user: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: "User"
-//   }
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 

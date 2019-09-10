@@ -41,7 +41,8 @@ export default class MoreModal extends React.Component {
             <Button onClick={this.toggle}>Click Me!</Button>
             <Modal open={open} toggle={this.toggle}>
                 <ModalHeader>PlantNerd</ModalHeader>
-                <ModalBody>👋 {this.props.id}{this.props.name}}{this.props.scientificName}} {this.props.sun}} {this.props.water}} {this.props.description}}
+                <ModalBody>👋 
+                {this.props.id}{this.props.name}}{this.props.scientificName}} {this.props.sun}} {this.props.water}} {this.props.description}}
                  {this.props.imageOne}} {this.props.imageTwo}}! 
                 <ModalFooter>
                   Footer
