@@ -22,7 +22,7 @@ class MainContainer extends Component {
         try{
             const deletePlant = await fetch(`http://localhost:9000/plants/${id}`, {
                 method: "DELETE",
-                // credentials: "include",
+                credentials: "include",
             })
             const parsedResponse = await deletePlant.json();
             if(parsedResponse.status.code === 200) {
@@ -39,7 +39,7 @@ class MainContainer extends Component {
         const updatePlant = await fetch(`http://localhost:9000/plants/${id}`, {
             method: "PUT",
             body: JSON.stringify(formData),
-            // credentials: "include",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json"
             }
@@ -64,7 +64,7 @@ class MainContainer extends Component {
             const newPlant = await fetch("http://localhost:9000/plants", {
                 method: "POST",
                 body: JSON.stringify(formData),
-                // credentials: "include",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
                     
