@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { FormInput } from "shards-react";
+import { Button, Modal, ModalBody, ModalHeader } from "shards-react";
 class Register extends Component {
     constructor(){
         super();
@@ -21,10 +22,10 @@ class Register extends Component {
     }
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                username: <input type="text" name="username" onChange={this.handleChange}/>
-                password: <input type="password" name="password" onChange={this.handleChange}/>
-                <input type="submit" value="Register" />
+            <form onSubmit={this.handleSubmit} class="formOne">
+                username: <FormInput type="text" name="username" onChange={this.handleChange}/>
+                password: <FormInput type="password" name="password" onChange={this.handleChange}/>
+                <Button type="submit">Register</Button>
             </form>
         )
     }

@@ -72,3 +72,13 @@ img {
   margin-top: 100px;
   z-index: 1;
 }
+
+.formOne {
+  width: 25%;
+  margin-left: 600px;
+  
+}
+.formTwo {
+  width: 25%;
+  margin-left: 600px;
+}

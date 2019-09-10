@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FormInput, Button } from "shards-react";
 
 class Login extends Component {
     constructor(){
@@ -21,10 +22,11 @@ class Login extends Component {
     }
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                username: <input type="text" name="username" onChange={this.handleChange}/>
-                password: <input type="password" name="password" onChange={this.handleChange}/>
-                <input type="submit" value="Register" />
+            <form onSubmit={this.handleSubmit} class="formTwo">
+                username: <FormInput type="text" name="username" onChange={this.handleChange}/>
+                password: <FormInput type="password" name="password" onChange={this.handleChange}/>
+                {/* <input type="submit" value="Login" /> */}
+                <Button type="submit">Login</Button>
             </form>
         )
     }
