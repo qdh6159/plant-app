@@ -103,7 +103,7 @@ class MainContainer extends Component {
         return(
             <div>
                 <PlantNav createPlant= {this.createPlant} />
-                <h3>Here is the Movie Container</h3>
+                <h3>Dashboard</h3>
                 <PlantList updatePlant={this.updatePlant} deletePlant={this.deletePlant} plants={this.state.plants} />
             </div>
         )

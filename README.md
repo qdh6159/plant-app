@@ -1,4 +1,4 @@
-PlantNerd is a convnenient way to keep track of all your beloved plants so that they stay healthy and happy. Future version of Plant Nerd will inculde sesrch and filter functionality. 
+PlantNerd is a convenient way to keep track of all your beloved plants so that they stay healthy and happy. Future version of Plant Nerd will include search and filter functionality. 
 ## Available Scripts
 
 In the project directory, you can run:
