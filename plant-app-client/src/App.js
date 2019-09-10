@@ -45,13 +45,34 @@ class App extends React.Component {
       })
     }
   }
+  handleLogin = async (formData) => {
+    console.log("Loggin in%%%%%")
+    console.log(formData);
+    const registerResonse = await fetch("http://localhost:9000/auth/login", {
+      method: "POST", 
+      body: JSON.stringify(formData),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    const parsedResponse = await registerResonse.json();
+    console.log(parsedResponse)
+    if(parsedResponse.status.code === 200){
+      console.log("SUCCESFUL LOGIN*********")
+      this.setState({
+        loggedIn: true,
+        username: parsedResponse.data.username
+      })
+    }
+  }
   render(){
     return(
       <div className="App"> 
       {
         this.state.loggedIn? 
         <MainContainer /> :
-        <AuthGateway handleRegister={this.handleRegister}/>
+        <AuthGateway handleLogin={this.handleLogin} handleRegister={this.handleRegister}/>
       }     
        
       </div>

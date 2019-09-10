@@ -22,20 +22,35 @@ router.post('/login', async (req, res) => {
       req.session.username = foundUser.username;
       req.session.logged = true;
 
-      res.redirect('/authors')
+      res.json({
+          status:{
+              code:200
+          },
+          data: foundUser
+      })
 
     } else {
       // send message back to client that
       // the username or password is incorrect
       req.session.message = 'Username or Password incorrect';
-      res.redirect('/');
+      res.json({
+          status:{
+              code:500,
+              message: 'Invalid Credentials'
+          }
+      });
     }
 
   } else {
     // send message back to client that
     // thier username or password is incorrect
     req.session.message = 'Username or Password incorrect';
-    res.redirect('/');
+    res.json({
+        status:{
+            code:500,
+            message: 'Invalid Credentials'
+        }
+    });
 
   }
 

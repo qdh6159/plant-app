@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Register from '../Register/Register'
+import Login from './Login/Login'
 
 class AuthGateway extends Component {
     constructor(){
@@ -11,6 +12,8 @@ class AuthGateway extends Component {
             <div>
                 <h1>Register as a new User</h1>
                 <Register handleRegister={this.props.handleRegister} />
+                <h1>Login</h1>
+                <Login handleLogin={this.props.handleLogin}/>
             </div>
         )
     }
