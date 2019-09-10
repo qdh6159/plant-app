@@ -19,11 +19,11 @@ function PlantList(props){
         <li key={plant._id}>
           <Card small={true} style={{ maxWidth: "250px" }}>
           <CardHeader></CardHeader>
-          <CardImg src="https://edge.bonnieplants.com/www/uploads/20180920002445/organic-rosemary-web.jpg" />
+          <CardImg src={plant.imageOne} />
           <CardBody>
           <CardTitle>{plant.name}</CardTitle>
           <p>uploaded by: {plant.user.username}</p>
-        <p>{plant.description}</p>
+        
 
         <MoreModal updatePlant={props.updatePlant} deletePlant={props.deletePlant} id={plant._id}name={plant.name} scientificName={plant.scientificName} water={plant.water} sun={plant.sun} description={plant.description}
         imageOne={plant.imageOne} imageTwo={plant.imageTwo}
@@ -54,7 +54,7 @@ function PlantList(props){
     })
   
     return (
-      <ul>
+      <ul class="plantList">
         {plants}
       </ul>
       )
